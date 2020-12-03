@@ -10,6 +10,8 @@ def get_map(path):
 
 
 def is_tree(map_, v_pos, h_pos):
+    # Using the modulus operator effectively makes map_ infinite; if len(map_)
+    # is 10, and h_pos is 10+, we'll loop back around to the start of the map.
     h_pos = h_pos % len(map_[0])
     return map_[v_pos][h_pos] == "#"
 
@@ -27,9 +29,11 @@ def navigate(map_, right, down):
 if __name__ == "__main__":
     map_ = get_map("03/data")
 
+    # Part 1
     trees = navigate(map_, 3, 1)
     print(trees)
 
+    # Part 2
     paths = [
         (1, 1),
         (3, 1),

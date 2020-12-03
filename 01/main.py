@@ -1,13 +1,9 @@
 #! /usr/bin/env python
 
+
 def load_data(path):
-    data = []
     with open(path) as in_f:
-        for line in in_f:
-            clean = line.strip()
-            if clean:
-                data.append(int(clean))
-    return data
+        return [int(line.strip()) for line in in_f.readlines()]
 
 
 def find_pair(data):
@@ -29,9 +25,11 @@ def find_triple(data):
 
 if __name__ == "__main__":
     data = load_data("01/data")
-    
+
+    # Part 1
     x, y = find_pair(data)
     print(x * y)
 
+    # Part 2
     x, y, z = find_triple(data)
     print(x * y * z)
