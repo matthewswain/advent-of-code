@@ -1,6 +1,5 @@
 #! /usr/bin/env python
 
-import string
 from functools import reduce
 
 
@@ -21,7 +20,7 @@ def keep_matching(list_a, list_b):
 
 
 def count_unanimous_answers(group):
-    unanimous = reduce(keep_matching, group, string.ascii_lowercase)
+    unanimous = reduce(keep_matching, group)
     return len(unanimous)
 
 
