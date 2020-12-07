@@ -27,7 +27,7 @@ def navigate(map_, right, down):
 
 
 if __name__ == "__main__":
-    map_ = get_map("03/data")
+    map_ = get_map("data")
 
     # Part 1
     trees = navigate(map_, 3, 1)

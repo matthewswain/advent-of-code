@@ -22,7 +22,7 @@ def find_missing_seat(seats):
 
 
 if __name__ == "__main__":
-    data = get_data("05/data")
+    data = get_data("data")
     seats = [get_seat(bp) for bp in data]
 
     # Part 1

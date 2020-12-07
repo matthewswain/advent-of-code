@@ -24,7 +24,7 @@ def find_triple(data):
 
 
 if __name__ == "__main__":
-    data = load_data("01/data")
+    data = load_data("data")
 
     # Part 1
     x, y = find_pair(data)

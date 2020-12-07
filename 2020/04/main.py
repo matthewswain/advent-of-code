@@ -54,7 +54,7 @@ def hgt_is_valid(hgt):
         value = int(value)
         unit_limits = limits[unit]
         return value >= unit_limits[0] and value <= unit_limits[1]
-    except:
+    except Exception:
         return False
 
 
@@ -75,13 +75,13 @@ def validate_record(record, extended):
     if not extended:
         return has_required_fields(record)
     return (
-        has_required_fields(record) 
-        and byr_is_valid(record["byr"]) 
+        has_required_fields(record)
+        and byr_is_valid(record["byr"])
         and iyr_is_valid(record["iyr"])
-        and eyr_is_valid(record["eyr"]) 
-        and hgt_is_valid(record["hgt"]) 
-        and hcl_is_valid(record["hcl"]) 
-        and ecl_is_valid(record["ecl"]) 
+        and eyr_is_valid(record["eyr"])
+        and hgt_is_valid(record["hgt"])
+        and hcl_is_valid(record["hcl"])
+        and ecl_is_valid(record["ecl"])
         and pid_is_valid(record["pid"])
     )
 
@@ -94,7 +94,7 @@ def parse_and_validate_records(records, extended=False):
 
 
 if __name__ == "__main__":
-    data = load_data("04/data")
+    data = load_data("data")
 
     # Part 1
     records = parse_and_validate_records(data)

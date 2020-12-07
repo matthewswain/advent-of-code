@@ -55,7 +55,7 @@ def count_valid_passwords(data, validator):
 
 
 if __name__ == "__main__":
-    data = get_data("02/data")
+    data = get_data("data")
 
     # Part 1
     count = count_valid_passwords(data, validate_password_1)
