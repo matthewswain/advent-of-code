@@ -31,4 +31,3 @@ def test_waypoint():
         ferry.update_waypoint(action, value)
 
     assert ferry.manhattan_position() == 286
-

@@ -3,7 +3,6 @@
 import re
 from collections import namedtuple
 
-
 contents = namedtuple("contents", "colour number")
 
 

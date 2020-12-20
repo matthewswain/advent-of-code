@@ -16,10 +16,10 @@ def get_next_seat(data, start, direction, count_floor):
     next_seat = Coords(start.line + direction.line, start.col + direction.col)
 
     if (
-            next_seat.line < 0
-            or next_seat.line >= len(data)
-            or next_seat.col < 0
-            or next_seat.col >= len(data[start.line])
+        next_seat.line < 0
+        or next_seat.line >= len(data)
+        or next_seat.col < 0
+        or next_seat.col >= len(data[start.line])
     ):
         return None
 
@@ -62,7 +62,9 @@ def update_plan(data, count_floor, threshold):
     new = deepcopy(data)
     for line in range(0, len(data)):
         for col in range(0, len(data[line])):
-            new[line][col] = update_seat(data, Coords(line, col), count_floor, threshold)
+            new[line][col] = update_seat(
+                data, Coords(line, col), count_floor, threshold
+            )
     return new
 
 

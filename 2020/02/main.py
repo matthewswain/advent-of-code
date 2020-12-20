@@ -2,7 +2,6 @@
 
 import re
 
-
 policy_regex = r"([0-9]+)-([0-9]+) ([a-z]): ([a-z]+)"
 
 

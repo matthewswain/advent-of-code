@@ -48,10 +48,10 @@ class Ferry:
         elif action == "W":
             self.waypoint_x -= value
         elif action == "L":
-            for i in range(0, int(value/90)):
+            for i in range(0, int(value / 90)):
                 self.waypoint_x, self.waypoint_y = -self.waypoint_y, self.waypoint_x
         elif action == "R":
-            for i in range(0, int(value/90)):
+            for i in range(0, int(value / 90)):
                 self.waypoint_x, self.waypoint_y = self.waypoint_y, -self.waypoint_x
         elif action == "F":
             self.x += self.waypoint_x * value
