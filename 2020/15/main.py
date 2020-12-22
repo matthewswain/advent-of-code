@@ -1,28 +1,40 @@
 #! /usr/bin/env python
 
-from typing import List
+from typing import Dict
 
 
 class Game:
-    numbers: List[int]
+    history: Dict[int, int]
+    previous_number: int
+    turn: int
 
     def __init__(self, *starting_numbers: int):
-        self.numbers = list(starting_numbers)
+        self.turn = 0
+        self.history = {}
+
+        for number in starting_numbers[:-1]:
+            self.turn += 1
+            self.history[number] = self.turn
+
+        self.turn += 1
+        self.previous_number = starting_numbers[-1]
 
     def next_turn(self):
-        last_number = self.numbers[-1]
+        self.turn += 1
+
         next_number = 0
-        for i, number in enumerate(reversed(self.numbers[:-1])):
-            if number == last_number:
-                next_number = i + 1
-                break
-        self.numbers.append(next_number)
+        if last_seen := self.history.get(self.previous_number):
+            next_number = self.turn - 1 - last_seen
+
+        self.history[self.previous_number] = self.turn - 1
+        self.previous_number = next_number
+
         return next_number
 
     def play_to_turn(self, turn: int):
-        while len(self.numbers) < turn:
+        while self.turn < turn:
             self.next_turn()
-        return self.numbers[-1]
+        return self.previous_number
 
 
 if __name__ == "__main__":
