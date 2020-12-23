@@ -13,7 +13,12 @@ def load_data(path: str) -> Dict[Tuple[int, int, int, int], bool]:
     return grid
 
 
-def list_neighbours(origin_x: int, origin_y: int, origin_z: int, origin_w: int, ) -> Iterable[Tuple[int, int, int]]:
+def list_neighbours(
+    origin_x: int,
+    origin_y: int,
+    origin_z: int,
+    origin_w: int,
+) -> Iterable[Tuple[int, int, int]]:
     for x in range(origin_x - 1, origin_x + 2):
         for y in range(origin_y - 1, origin_y + 2):
             for z in range(origin_z - 1, origin_z + 2):
@@ -22,7 +27,9 @@ def list_neighbours(origin_x: int, origin_y: int, origin_z: int, origin_w: int, 
                         yield x, y, z, w
 
 
-def update_cube(grid: Dict[Tuple[int, int, int, int], bool], x: int, y: int, z: int, w: int) -> bool:
+def update_cube(
+    grid: Dict[Tuple[int, int, int, int], bool], x: int, y: int, z: int, w: int
+) -> bool:
     cube = grid.get((x, y, z, w), False)
 
     neighbour_coordinates = list_neighbours(x, y, z, w)
@@ -42,7 +49,9 @@ def get_bounds(
     grid: Dict[Tuple[int, int, int, int], bool], include_inactive=False
 ) -> (Tuple[int, int, int, int], Tuple[int, int, int, int]):
     active = [
-        (x, y, z, w) for x, y, z, w in grid.keys() if grid.get((x, y, z, w)) or include_inactive
+        (x, y, z, w)
+        for x, y, z, w in grid.keys()
+        if grid.get((x, y, z, w)) or include_inactive
     ]
 
     min_x = min([x for x, y, z, w in active])
